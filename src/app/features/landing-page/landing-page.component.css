@@ -1,0 +1,84 @@
+.main{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 720px;
+     background-image: url('../../../assets/banner.jpg');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat; 
+    position: relative;
+}
+
+.list{
+  justify-content: flex-end
+}
+ .lists{
+    width: 650px;
+    justify-content: space-between;
+} 
+.icon{
+font-size: 1.5rem;
+color: #151413;
+padding-right: 5px;
+
+}
+
+
+.nav{
+    padding-top: 20px;
+    padding: 25px;
+}
+p{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: xx-large;
+    font-style: italic;
+    position: absolute;
+
+}
+.div{
+    width: 30%;
+    height: 50%;
+    position: absolute;
+    top:250px;
+    left: 60px;
+}
+.logicon{
+    padding-left: 50px;
+}
+.imm{
+    width: 50px;
+    height: 50px;
+}
+
+.nav-link:hover{
+    background-color: #d1e4f0;
+    transform: translateY(-5px);
+    border-radius: 50px;
+}
+
+.example-container {
+    width: 500px;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
+
+  .nav-link{
+    display: flex;
+    
+
+  }
+
+ 
+  

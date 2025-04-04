@@ -1,14 +1,58 @@
+.full {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;  
+  gap: 20px; 
+}
+
+
+
 .main{
     padding: 0px;
     margin: 0px;
     width: 100%;
     height: 720px;
-     background-image: url('../../../assets/banner.jpg');
+     background-image: url('/assets/banner.jpg');
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat; 
     position: relative;
+    border-radius: 20px;
+    opacity: 0.6;
+    transform: translateY(-50px);
+    animation: slideFromTop 2s forwards;
+    animation-delay: calc(var(--i) * 0.2s);
 }
+
+.main video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  pointer-events: none;
+ 
+
+}
+
+@keyframes slideFromTop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.main::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px; 
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 100%);
+}
+
 
 .list{
   justify-content: flex-end
@@ -23,62 +67,198 @@ color: #151413;
 padding-right: 5px;
 
 }
-
-
-.nav{
-    padding-top: 20px;
-    padding: 25px;
+.div{
+  width: 30%;
+  height: 50%;
+  position: absolute;
+  top:250px;
+  left: 60px;
 }
-p{
+.review-avatar {
+  background-image: url('../../../assets/img3.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.review{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+ 
+}
+.card{
+  width: 400px;
+  margin: 10px;
+
+
+}
+.review-container{
+  margin-top: 40px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow: hidden;
+  justify-content: center;
+
+}
+
+.reviewtitle p{
+  color: grey ;
+  
+}
+.reviewtitle{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+  .bannerquote{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: xx-large;
     font-style: italic;
     position: absolute;
 
 }
-.div{
-    width: 30%;
-    height: 50%;
-    position: absolute;
-    top:250px;
-    left: 60px;
-}
-.logicon{
-    padding-left: 50px;
-}
-.imm{
-    width: 50px;
-    height: 50px;
-}
 
-.nav-link:hover{
-    background-color: #d1e4f0;
-    transform: translateY(-5px);
-    border-radius: 50px;
-}
-
-.example-container {
-    width: 500px;
-    height: 300px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-  }
-  
-  .example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
+  .search{
     justify-content: center;
-  }
-  
-  .example-sidenav {
-    padding: 20px;
+    padding-top: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 80px;
+   position: relative;
+    top:-60px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    
   }
 
-  .nav-link{
+  .search h1{
+    margin-top: 20px;
+    text-align:center;
+    color:#3e3c3b;
+  }
+
+  
+  .search-cont{
     display: flex;
+    justify-content: center;
+   
+
+  }
+
+  .search-form {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: auto;
+    
+}
+
+.search-field {
+    padding: 10px;
+    border: 2px solid #c9d2db;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: white;
+    outline: none;
+    width: 100%;
+   
+}
+
+
+.marquee>img{
+  width: 100px;
+  height: 100px;
+  flex-wrap: wrap;
+  animation: textAnimation 10s linear infinite;
+  background-color: rgba(0, 0, 0, 0.5);
+  
+
     
 
+  
+}
+
+
+button.search-field{
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: rgb(233, 203, 72);
+  color: white;
+}
+
+.marquee{
+   height: 200px;
+   display: flex;
+   overflow: hidden;
+   animation: marquee 10s linear infinite ;
+   position: relative;
+   width: 100%;
+  
+  
+  
+
   }
+  
+  .written-content{
+text-align: center;
+  }
+  #secndh1{
+   margin-bottom: 20px;
+   padding-bottom: 20px;
+      }
+  .text{
+    padding: 0%;
+    margin: 0%;
+    
+    color: grey;
+  }
+
+
+ 
+
+  .foot{
+    width: 100%;
+  }
+
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  
+  @media (max-width: 800px) {
+      .search-form {
+          flex-direction: column;
+      }
+      .search{
+        border-radius: 10px;
+      }
+      .search-form{
+        width: 100%;
+      }
+     
+     
+  }
+  
+
+  
+
+  
 
  
   

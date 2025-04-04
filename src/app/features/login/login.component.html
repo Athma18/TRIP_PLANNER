@@ -1,28 +1,84 @@
+<div class="container-fluid">
 
 
-    <div class="container-fluid">
-       
-        
-        <div class="img"></div>
-        <div class="form">
-            <form action="">
-                <div class="logo">
-                </div>
-                
-                <p>Sign in to start your session</p>
-
-                    <input matInput type="text" placeholder="  UserName">
-
-
-                    <input type="text" placeholder="  Password">
-                
-            
-
-                <button>Login</button>
-
-                
-        
-            </form>
-        </div>
+  <div class="img">
+    <div class="img-content">
+      <h1 class="img-title">Travelista Tours</h1>
+      <p class="img-paragraph">Travel is the only purchase that enriches you in ways
+      </p>
+      <p class="img-paragraph">beyond material wealth
+      </p>
     </div>
+  </div>
 
+
+
+  <div class="form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <h1 class="welcome">Welcome</h1>
+      <p>{{isSignup? 'Register':'LogIn'}} with Email</p>
+      <div *ngIf="!isSignup" class="user-type-selector">
+        <mat-button-toggle-group formControlName="userType">
+          <mat-button-toggle [value]="'traveller'">
+            <mat-icon>card_travel</mat-icon>
+            <span>Traveller</span>
+          </mat-button-toggle>
+          <mat-button-toggle [value]="'admin'">
+            <mat-icon>admin_panel_settings</mat-icon>
+            <span>Admin</span>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+      <mat-form-field *ngIf="isSignup" appearance="outline">
+        <mat-label>Username</mat-label>
+        <input formControlName="username" matInput type="text" placeholder="  Username">
+        <mat-icon matPrefix>person</mat-icon>
+
+      </mat-form-field>
+
+
+      <mat-form-field class="field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput type="email" placeholder="  Email">
+        <mat-icon matPrefix>email</mat-icon>
+      </mat-form-field>
+
+      <!--   <p class="alert" *ngIf=" loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">Email is required</p>  -->
+
+      <p class="alert" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">Enter valid
+        email</p>
+
+      <mat-form-field class="field" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" [type]="hide() ? 'password' : 'text'">
+        <mat-icon matPrefix>lock_outline</mat-icon>
+
+        <button type="button" class="hidepassword" mat-icon-button matSuffix (click)="clickEvent($event)"
+          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide()">
+          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+
+      <!--                 <p class="alert" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">Password is required</p>
+-->
+
+      <div class="forgot-password">
+        <a href="#">Forgot your password?</a>
+      </div>
+
+
+      <button type="submit" class="inup">{{isSignup ? 'SignUp' : 'LogIn'}}</button>
+      <a type="button">
+        <p (click)="toggleForm()"> {{ isSignup ? `Already have an account ? Login Here `:`Don't have an account ?
+          Register Here ` }}</p>
+      </a>
+
+
+
+
+    </form>
+  </div>
+</div>

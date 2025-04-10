@@ -1,20 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LandingPageComponent } from './landing-page.component';
+import { PackageCardComponent } from './package-card.component';
 
-describe('LandingPageComponent', () => {
-
-
-  let component: LandingPageComponent;
-  let fixture: ComponentFixture<LandingPageComponent>;
+describe('PackageCardComponent', () => {
+  let component: PackageCardComponent;
+  let fixture: ComponentFixture<PackageCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LandingPageComponent]
+      imports: [PackageCardComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LandingPageComponent);
+    fixture = TestBed.createComponent(PackageCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,5 +21,3 @@ describe('LandingPageComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-

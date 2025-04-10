@@ -12,7 +12,6 @@
   </div>
 
 
-
   <div class="form">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
@@ -31,11 +30,14 @@
         </mat-button-toggle-group>
       </div>
 
+
       <mat-form-field *ngIf="isSignup" appearance="outline">
         <mat-label>Username</mat-label>
         <input formControlName="username" matInput type="text" placeholder="  Username">
         <mat-icon matPrefix>person</mat-icon>
-
+        <mat-error *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched">
+          Username is required
+        </mat-error>
       </mat-form-field>
 
 
@@ -43,18 +45,26 @@
         <mat-label>Email</mat-label>
         <input formControlName="email" matInput type="email" placeholder="  Email">
         <mat-icon matPrefix>email</mat-icon>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+          Email is required
+        </mat-error>
+      
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+          Enter a valid email
+        </mat-error>
       </mat-form-field>
 
-      <!--   <p class="alert" *ngIf=" loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">Email is required</p>  -->
-
-      <p class="alert" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">Enter valid
-        email</p>
-
+     
       <mat-form-field class="field" appearance="outline">
         <mat-label>Password</mat-label>
         <input matInput formControlName="password" [type]="hide() ? 'password' : 'text'">
         <mat-icon matPrefix>lock_outline</mat-icon>
-
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
+          Password must be 6 digits
+        </mat-error>
         <button type="button" class="hidepassword" mat-icon-button matSuffix (click)="clickEvent($event)"
           [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide()">
           <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -62,8 +72,7 @@
       </mat-form-field>
 
 
-      <!--                 <p class="alert" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">Password is required</p>
--->
+
 
       <div class="forgot-password">
         <a href="#">Forgot your password?</a>
@@ -72,8 +81,9 @@
 
       <button type="submit" class="inup">{{isSignup ? 'SignUp' : 'LogIn'}}</button>
       <a type="button">
-        <p (click)="toggleForm()"> {{ isSignup ? `Already have an account ? Login Here `:`Don't have an account ?
-          Register Here ` }}</p>
+      
+            <p (click)="toggleForm()" *ngIf="isSignup" >  Already have an account ? <span> Login Here </span>  </p>
+           <p (click)="toggleForm()" *ngIf="!isSignup" >  Don't have an account ? <span>Register Here </span> </p>
       </a>
 
 

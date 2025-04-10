@@ -1,0 +1,72 @@
+
+<app-head class="header" ></app-head>
+<div *ngIf="countryDetails"  class="destination-banner ">
+    <img src="../../../assets/footerimg.jpg" alt="Destination" class="img-fluid w-100" style="height: 400px; object-fit: cover;" />
+    <div class="banner-text  top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5"  style="background: rgba(84, 171, 233,0.4);">
+      <h1 class="display-4"> {{ countryDetails?.name }}</h1>
+      <p class="lead"> {{ countryDetails?.description }}</p>
+      <div class="weather-box bg-light text-dark p-3 rounded shadow-sm mt-3">
+        <p class="mb-1"><strong>Weather:</strong> {{weather.main.temp}} deg Celsius, {{weather.weather[0].main}}</p>
+        <small>{{ weather.weather[0].description | titlecase }} — Humidity: {{ weather.main.humidity }}%</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid my-5">
+    <div  class="row">
+   
+      <div  class="col-lg-3 col-md-4 col-12 mb-4">
+        <div class="border rounded p-3 shadow-sm bg-white">
+          <h5 class="mb-3">Filter Packages</h5>
+          <label for="costRange" class="form-label">Max Cost</label>
+          <input type="range" class="form-range" id="costRange" min="1000" max="10000"  [(ngModel)]="filters.maxCost" (ngModelChange)="applyFilters()">
+  
+          <label for="typeSelect" class="form-label mt-3">Package Type</label>
+          <select (ngModelChange)="applyFilters()" class="form-select" id="typeSelect" [(ngModel)]="filters.type">
+            <option value="">All</option>
+            <option value="adventure">Adventure</option>
+            <option value="family">Family</option>
+             <option value="honeymoon">Honeymoon</option>
+          </select>
+  
+          <label for="daysInput" class="form-label mt-3">Number of Days</label>
+          <input (ngModelChange)="applyFilters()" type="number" class="form-control" id="daysInput" min="1" [(ngModel)]="filters.days" placeholder="e.g. 5">
+        </div>
+      </div>
+  
+      
+      <div class="col-lg-9 col-md-8 col-12">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="../../../assets/img2.jpg" class="card-img-top" alt="Package 1">
+              <div class="card-body">
+                <h5 class="card-title">Swiss Delight</h5>
+                <p class="card-text">Adventure • 5 Days • ₹2500</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <img src="../../../assets/img3.jpg" class="card-img-top" alt="Package 2">
+              <div class="card-body">
+                <h5 class="card-title">Alpine Magic</h5>
+                <p class="card-text">Family • 7 Days • ₹4000</p>
+              </div>
+            </div>
+          </div>
+  
+        
+
+        </div>
+      </div>
+    </div>
+  </div>
+            <app-foot></app-foot>
+
+
+
+
+
+  

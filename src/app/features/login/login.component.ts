@@ -9,7 +9,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ToastrService } from 'ngx-toastr';
-import { log } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -49,6 +48,7 @@ export class LoginComponent {
       userType: ['traveller', Validators.required]
 
     })
+
     this.updateUsernameValidation();
   }
 
@@ -95,10 +95,11 @@ export class LoginComponent {
 
     this.authService.login(email, password, userType).subscribe(
 
-      (response: { token: string, role: string }) => {
+      (response: { token: string, role: string, message:string }) => {
 
         this.authService.setToken(response.token);
         this.authService.setUserType(response.role);
+        this.toastr.success(response.message || "Login successfull");
 
         if (response.role === 'admin') {
           console.log("navigating to admin");
@@ -115,6 +116,8 @@ export class LoginComponent {
       (error: any) => {
         console.error("Login error:", error);
         this.toastr.error('Invalid email or password', 'Authentication failed');
+        this.loginForm.reset();
+
       }
 
     );
@@ -140,9 +143,8 @@ export class LoginComponent {
 
       },
       (error: any) => {
+
         if (error.status === 400) {
-
-
           this.toastr.error(error.error.message);
         }
 
@@ -151,11 +153,15 @@ export class LoginComponent {
     );
 
   }
-
-
-
-
 }
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,34 @@
+.card{
+    width: 400px;
+    margin: 10px;
+  
+  
+  }
+  .review-container{
+    margin-top: 40px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: center;
+  
+  }
+  .review{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+   
+  }
+  
+  .reviewtitle p{
+    color: grey ;
+    
+  }
+  .reviewtitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  

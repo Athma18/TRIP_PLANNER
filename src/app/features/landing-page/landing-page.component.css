@@ -3,6 +3,8 @@
   flex-direction: column; 
   align-items: center;  
   gap: 20px; 
+  padding: 0;
+  margin: 0;
 }
 
 
@@ -23,6 +25,10 @@
     animation: slideFromTop 2s forwards;
     animation-delay: calc(var(--i) * 0.2s);
 }
+
+
+
+
 
 .main video{
   position: absolute;
@@ -54,6 +60,60 @@
 }
 
 
+/* ///////////// */
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif; 
+  font-weight: 700;
+  color: #001f3f;
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; 
+  color: #333; 
+  line-height: 1.6; 
+  text-align: center; 
+  margin-bottom: 15px; 
+}
+
+.bannerquote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; 
+  font-style: italic; 
+  text-align: center;
+  margin: 20px 0;
+}
+
+
+.reviewtitle h1, .reviewtitle p {
+  font-family: 'Playfair Display', serif;
+  color: #001f3f;
+}
+
+.reviewtitle p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #555;
+}
+
+.written-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #001f3f;
+}
+
+.written-content p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #555;
+}
+
+
+
+
 .list{
   justify-content: flex-end
 }
@@ -80,13 +140,7 @@ padding-right: 5px;
   background-position: center;
 }
 
-.review{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 
- 
-}
 .card{
   width: 400px;
   margin: 10px;
@@ -141,6 +195,7 @@ padding-right: 5px;
     margin-top: 20px;
     text-align:center;
     color:#3e3c3b;
+    font-weight:bold;
   }
 
   
@@ -168,22 +223,24 @@ padding-right: 5px;
     border: 2px solid #c9d2db;
     border-radius: 10px;
     font-size: 16px;
-    background-color: white;
+    background-color: rgba(248, 252, 253, 0.9);
     outline: none;
     width: 100%;
+    
    
+}
+.marquee-content {
+  display: flex;
+  animation: marquee 20s linear infinite;
 }
 
 
-.marquee>img{
+.marquee-content img{
   width: 100px;
   height: 100px;
-  flex-wrap: wrap;
-  animation: textAnimation 10s linear infinite;
-  background-color: rgba(0, 0, 0, 0.5);
+  margin-right: 10px;
   
-
-    
+  background-color: rgba(0, 0, 0, 0.5);
 
   
 }
@@ -194,19 +251,17 @@ button.search-field{
   border-radius: 10px;
   background-color: rgb(233, 203, 72);
   color: white;
+
 }
 
 .marquee{
    height: 200px;
    display: flex;
+   white-space: nowrap;
    overflow: hidden;
-   animation: marquee 10s linear infinite ;
    position: relative;
    width: 100%;
   
-  
-  
-
   }
   
   .written-content{
@@ -228,12 +283,13 @@ text-align: center;
 
   .foot{
     width: 100%;
+   min-height: 400px;
   }
 
 
   @keyframes marquee {
     from {
-      transform: translateX(0%);
+      transform: translateX(0);
     }
     to {
       transform: translateX(-50%);

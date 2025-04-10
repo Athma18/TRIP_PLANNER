@@ -107,7 +107,7 @@ p {
 
 mat-form-field {
     width: 100%;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
 }
 
 .user-type-selector {
@@ -199,7 +199,7 @@ mat-form-field {
     cursor: pointer;
 } 
 
-p:hover {
+p span:hover{
     color: #00B4D8;
 }
 
@@ -213,6 +213,7 @@ p:hover {
 
 ::ng-deep .mat-icon {
     color: #00B4D8;
+    
 }
 
 .forgot-password {
@@ -230,12 +231,13 @@ p:hover {
     color: #00B4D8;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px ) {
     .container-fluid {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
+        
     }
 
     .form {

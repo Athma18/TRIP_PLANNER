@@ -1,0 +1,79 @@
+.package-details {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .package-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .package-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .itinerary {
+    margin-top: 20px;
+  }
+  
+  .itinerary h2 {
+    font-size: 1.8rem;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  .day-details {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .day-header h3 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin: 0;
+  }
+  
+  .day-title {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .destinations-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .destinations-list li {
+    font-size: 1rem;
+    color: #333;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .destinations-list li:last-child {
+    border-bottom: none;
+  }
+  
+  .destination-name {
+    font-weight: bold;
+    color: #555;
+  }

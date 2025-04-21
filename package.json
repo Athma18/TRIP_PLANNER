@@ -35,6 +35,7 @@
     "express": "^4.18.2",
     "lucide-angular": "^0.483.0",
     "ngx-bootstrap": "^19.0.2",
+    "ngx-infinite-scroll": "^19.0.0",
     "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

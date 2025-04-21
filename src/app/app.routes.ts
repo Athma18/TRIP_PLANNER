@@ -19,10 +19,13 @@ export const routes: Routes = [
     path:'Admin',component:AdminComponent, canActivate:[adminGuard]
    },
    {
-    path:'destination/:country',component:DestinationsPageComponent
+    path:'destination/:id',component:DestinationsPageComponent
    },
    {
     path:'packagedetails',component:PackageDetailsPageComponent
+   },
+   {
+    path:'destination',component:DestinationsPageComponent
    },
     
     { path: '**', redirectTo: '' }

@@ -52,6 +52,9 @@ export class LoginComponent {
     this.updateUsernameValidation();
   }
 
+
+  
+
   toggleForm() {
     this.isSignup = !this.isSignup;
     this.updateUsernameValidation();

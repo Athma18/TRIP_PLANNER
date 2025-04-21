@@ -8,6 +8,15 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { isDevMode } from '@angular/core';
+import { countryReducer } from './app/Store/Reducer/country.reducer';
+import { CountryEffects } from './app/Store/Effects/country.effects';
+import { provideRouter} from '@angular/router';
+import { routes } from './app/app.routes';
+import { PackagesEffects } from './app/Store/Effects/packages.effects';
+import { packagesReducer } from './app/Store/Reducer/package.reducer';
+import { CountryDetailsEffects } from './app/Store/Effects/countrydetails.effects';
+import { countryDetailsReducer } from './app/Store/Reducer/countrydetails.reducer.ts';
+
 //import { enableProdMode } from '@angular/core';
 //enableProdMode();
 
@@ -20,16 +29,35 @@ clerk.load();
 export { clerk }; */
 /* bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err)); */
+  const scrollRestorationHandler = () => {
+    window.history.scrollRestoration = 'manual'; 
+    window.addEventListener('popstate', () => {
+      window.scrollTo(0, 0);  
+    });
+  };
+  
+  const reducers = {
+    country: countryReducer,
+package:packagesReducer,
+countryDetails:countryDetailsReducer
+  };
 
+  const effects = [CountryEffects,PackagesEffects,CountryDetailsEffects];
 
   
 bootstrapApplication(AppComponent, {
   ...appConfig,
   providers: [
-    ...(appConfig.providers || []), // Preserve existing providers
+    ...(appConfig.providers || []), 
+    
     provideAnimations(),
-    provideStore(),
-    provideEffects(),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+    provideStore(reducers),
+    provideEffects(effects),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideRouter(routes)
+   
 ]
-}).catch((err) => console.error(err));
+}).then(() => {
+  scrollRestorationHandler();
+})
+.catch((err) => console.error(err));

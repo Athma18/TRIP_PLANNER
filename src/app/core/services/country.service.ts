@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-  
+import {  Observable, tap } from 'rxjs';
+import { Country } from '../../Model/country.models';
+import { map } from 'rxjs';
+import { Package } from '../../Model/package.model';
+import { CountryDetail } from '../../Model/country-details.model';
 @Injectable({
 
   providedIn: 'root'
@@ -10,47 +13,60 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 
 export class CountryService {
-  private apiUrl = 'http://localhost:4000/countries'; 
-private getcountryUrl="http://localhost:4000/countries";
-private apiKey="0fb98fece26b5c523a9d05679134b10e";
-private weatherurl="https://home.openweathermap.org";
+private getcountryUrl="http://localhost:3000/countries";
+private getpackagesUrl="http://localhost:3000/country-details";
+private apiUrl="http://localhost:3000/packages"
   constructor( private http:HttpClient) { }
  
-  private countriesSubject = new BehaviorSubject<any[]>([]);
-  public countries$ = this.countriesSubject.asObservable();
-  fetchCountries(): void {
-    this.http.get<any[]>(this.getcountryUrl).subscribe(data => {
-      this.countriesSubject.next(data);
-    });
-  }
+  fetchCountries(): Observable<Country[]> {
+  return this.http.get<Country[]>(this.getcountryUrl).pipe(
+    tap((data) => console.log('API Response:', data)) 
+  );
+} 
 
-  getCountriesSnapshot(): any[] {
-    return this.countriesSubject.getValue();
-  }
-  
+ getAllCountries(): Observable<CountryDetail[]> {
+  return this.http.get<CountryDetail[]>(`${this.getpackagesUrl}`)
+    
+} 
 
-   getCountryDetails(countryName: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${countryName}`).pipe(
-
-    )
- 
-  };
-
-
-
-
-   getWeather(countryName: string): Observable<any> {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${countryName}&appid=0fb98fece26b5c523a9d05679134b10e&units=metric`;
-    return this.http.get(url);
-  };
-/*
-  getweather(city:string):Observable<any>{
-
-    return this.http.get<any>(`${this.weatherurl}?q=${city}&appid=${this.apiKey}`);
-
-  };
- */
-  
- 
-
+search(term:string):Observable<any[]>{
+return this.http.get<any[]>(`http://localhost:3000/countries?q=${term}`);
 }
+
+getWeather(countryName: string): Observable<any> {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${countryName}&appid=0fb98fece26b5c523a9d05679134b10e&units=metric`;
+  return this.http.get(url);
+}; 
+//fetch packages
+getPackages(page: number, limit: number, filters: any = {}): Observable<Package[]> {
+  const params:any = {
+    page,
+    limit,
+  
+  };
+  if (filters) {
+    if (filters.destination) params.destination = filters.destination;
+    if (filters.type) params.type = filters.type;
+    if (filters.price) params.price = filters.price;
+    if (filters.duration) params.duration = filters.duration;
+  }
+
+  return this.http.post<Package[]>(`${this.apiUrl}`, params);
+}
+
+
+
+ 
+
+
+ 
+  };
+
+
+
+
+
+ 
+  
+ 
+

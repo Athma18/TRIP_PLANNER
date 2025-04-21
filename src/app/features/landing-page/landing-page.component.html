@@ -24,23 +24,32 @@
 
     <div class="search">
       <h1>Plan a Trip</h1>
+    
+      <form class="search-form " (submit)="search()">
+        <input
+          type="text"
+          class="search-field "
+          [(ngModel)]="searchCountry"
+          name="country"
+          placeholder="Where To?"
+          (input)="asyncsearch($event)"
+          autocomplete="off"
+          
+        />
+  
+    
+ <ul>
 
+  <li *ngFor="let item of results" (click)="selectCountry(item)">{{item.name}}</li>
 
-
-      <form class="search-form" (submit)="search()">
-        <select  [(ngModel)]="searchCountry"  class="search-field " name="country" id="" placeholder="Where To ? ">
-          <option value="" disabled selected>Where To?</option>
-
-          <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
-        </select>
-     
-
-
-
-        <button class="search-field" type="submit" >Start Planning</button>
-
+ </ul>
+    
+ 
+        <button class="search-field mt-2" type="submit">Start Planning</button>
       </form>
+       
     </div>
+    
 
 
   </div>

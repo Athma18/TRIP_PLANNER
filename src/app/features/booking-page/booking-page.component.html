@@ -1,53 +1,76 @@
-<!-- <app-head></app-head>
- -->
-<div class="container">
-   
-    
-    <div class="booking-container">
-        <h1>Book Your Trip</h1>
-    
-        <div class="package-preview">
-            <img src="https://via.placeholder.com/450x250.png?text=Maldives+Getaway" alt="Trip Package">
-            <h2>Maldives Getaway</h2>
-            <p>7 Days | Beach & Relaxation | ₹1,20,000</p>
-        </div>
-    
-        <form class="booking-form">
-            <div class="form-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" placeholder="Enter your full name" required>
-            </div>
-    
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
-            </div>
-    
-            <div class="form-group">
-                <label for="package">Select Package</label>
-                <select id="package" required>
-                    <option value="">--Choose a Package--</option>
-                    <option value="maldives">Maldives Getaway</option>
-                    <option value="bali">Bali Adventure</option>
-                    <option value="swiss">Swiss Alps Tour</option>
-                </select>
-            </div>
-    
-            <div class="form-group">
-                <label>Choose Payment Method</label>
-                <div class="payment-methods">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/visa.png" alt="Visa">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/mastercard.png" alt="MasterCard">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/paypal.png" alt="PayPal">
-                </div>
-            </div>
-    
-            <button type="submit" class="btn-book">Confirm Booking</button>
-        </form>
+<div class="booking-container">
+  <div class="booking-form">
+    <h2>Book Your Trip</h2>
+    <p>Fill in your details to book your travel package</p>
+<form  [formGroup]="bookingForm" (ngSubmit)="onSubmit()" action="">
+    <div class="form-section">
+
+      <h3>Booking Details</h3>
+      <label>Name</label>
+      <input type="text" formControlName="name" placeholder="Your Name" />
+      <div *ngIf="bookingForm.get('name')?.touched && bookingForm.get('name')?.invalid">
+        <small>Name is required.</small>
+      </div>
+
+        <label>Email</label>
+    <input type="email" formControlName="email" placeholder="Your Email" />
+    <div *ngIf="bookingForm.get('email')?.touched && bookingForm.get('email')?.invalid">
+      <small *ngIf="bookingForm.get('email')?.errors?.['required']">Email is required.</small>
+      <small *ngIf="bookingForm.get('email')?.errors?.['email']">Invalid email format.</small>
     </div>
-    
 
-    
-    
+    <label>Phone Number</label>
+    <input type="text" formControlName="phoneNumber" placeholder="# of People" />
+    <div *ngIf="bookingForm.get('phoneNumber')?.touched && bookingForm.get('phoneNumber')?.invalid">
+      <small>Valid phone number is required.</small>
+    </div>
+  </div>
+
+
+
+    <div class="form-section">
+      <h3>Payment Details</h3>
+      <label>Card Number</label>
+      <input type="text" formControlName="cardNumber" placeholder="Card Number" />
+      <div *ngIf="bookingForm.get('cardNumber')?.touched && bookingForm.get('cardNumber')?.invalid">
+        <small>Card number must be 16 digits.</small>
+      </div>
+
+      <div class="payment-row">
+        <div>
+         <label>MM / YY</label>
+        <input type="text" formControlName="expiryDate" placeholder="MM / YY" />
+        <div *ngIf="bookingForm.get('expiryDate')?.touched && bookingForm.get('expiryDate')?.invalid">
+          <small>Use MM/YY format.</small>
+        </div>
+
+        </div>
+        <div>
+          <label>CVC</label>
+        <input type="text" formControlName="cvc" placeholder="CVC" />
+        <div *ngIf="bookingForm.get('cvc')?.touched && bookingForm.get('cvc')?.invalid">
+          <small>Enter a 3 or 4 digit CVC.</small>
+        </div>
+
+        </div>
+      </div>
+
+     <label>Payment Details</label>
+    <input type="text" formControlName="paymentDetails" placeholder="Enter Payment Details" />
+    <div *ngIf="bookingForm.get('paymentDetails')?.touched && bookingForm.get('paymentDetails')?.invalid">
+      <small>Payment details required.</small>
+    </div>
+
+    </div>
+
+
+    <button class="book-now-btn">Book Now</button>
+  </form>
+  </div>
+  
+
+  <div class="image-section">
+    <img src="../../../assets/banner.jpg" alt="Santorini" class="side-image" />
+<!--     <img src="../../../assets/login3.jpg" alt="Beach" class="side-image" />
+ -->  </div>
 </div>
-

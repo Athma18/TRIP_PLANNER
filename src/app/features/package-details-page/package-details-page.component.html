@@ -1,35 +1,58 @@
-<div class="package-details">
-    <h1 class="package-title">Package Name: Explore the World</h1>
-    <p class="package-description">
-      This package offers an exciting journey through some of the most beautiful destinations.
-    </p>
-  
+
+<app-head class="head"></app-head>
+<div class="image">
+  <h2 class="package-description">{{packageDetails.packageName}}</h2>
+   <p class="packagedescription">
+    {{packageDetails.description}}
+  </p> 
+
+</div>
+
+
+  <div class="container">
+   
     <div class="itinerary">
-      <h2>Itinerary</h2>
-      <div class="day-details">
-        <div class="day-header">
-          <h3>Day 1</h3>
-          <p class="day-title">Arrival and City Tour</p>
-        </div>
-        <ul class="destinations-list">
-          <li><span class="destination-name">Eiffel Tower</span></li>
-          <li><span class="destination-name">Louvre Museum</span></li>
-          <li><span class="destination-name">Notre Dame Cathedral</span></li>
+      <h1 class="package-title"> </h1>
+
+        <h2>Travel Itinerary</h2>
+        <ul *ngFor="let plan of packageDetails.dailyPlan">
+            <li>
+                <h3>Day : {{ plan.day }} <span>{{ plan.title }}</span></h3>
+                <h3></h3>
+                <ul *ngFor="let destination of plan.destinations">
+                    <li>{{destination}}</li>
+                </ul>
+            </li>
+           
         </ul>
-      </div>
-  
-      <div class="day-details">
-        <div class="day-header">
-          <h3>Day 2</h3>
-          <p class="day-title">Exploring the Countryside</p>
-        </div>
-        <ul class="destinations-list">
-          <li><span class="destination-name">Lake Geneva</span></li>
-          <li><span class="destination-name">Matterhorn</span></li>
-          <li><span class="destination-name">Interlaken</span></li>
-        </ul>
-      </div>
+       
+        <section class="book-now">
+          <h2>Ready for Your Adventure?</h2>
+          <p>Book your dream trip today and let the journey begin!</p>
+          <button (click)="gotobookingpage(packageDetails.packageId)" class="book-button">Book Now</button>
+        </section>
     </div>
-  </div>
+  
+    <div class="highlights">
+        <h2> Similar Packages</h2>
+
+        <div class="highlight-card">
+            <img src="../../../assets/footerimg.jpg" alt="Eiffel Tower">
+            <h4>Eiffel Tower</h4>
+            <p>The iconic symbol of Paris offering panoramic views of the city.</p>
+        </div>
+
+        <div class="highlight-card">
+            <img src="../../../assets/login3.jpg" alt="Louvre Museum">
+            <h4>Louvre Museum</h4>
+            <p>Explore art and history in the world's largest museum.</p>
+        </div>
+    </div>
+   
+ 
+    
+</div>
+
+
 
 

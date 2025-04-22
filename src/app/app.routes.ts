@@ -7,6 +7,7 @@ import { AdminComponent } from './features/admin/admin.component';
 import { adminGuard } from './core/guards/admin.guard';
 import { DestinationsPageComponent } from './features/destinations-page/destinations-page.component';
 import { PackageDetailsPageComponent } from './features/package-details-page/package-details-page.component';
+import { BookingPageComponent } from './features/booking-page/booking-page.component';
 
 export const routes: Routes = [
     {
@@ -18,14 +19,15 @@ export const routes: Routes = [
    {
     path:'Admin',component:AdminComponent, canActivate:[adminGuard]
    },
+  
    {
-    path:'destination/:id',component:DestinationsPageComponent
-   },
-   {
-    path:'packagedetails',component:PackageDetailsPageComponent
+    path:'packagedetails/:id',component:PackageDetailsPageComponent
    },
    {
     path:'destination',component:DestinationsPageComponent
+   },
+   {
+    path:'booking/:id',component:BookingPageComponent
    },
     
     { path: '**', redirectTo: '' }

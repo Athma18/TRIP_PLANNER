@@ -1,25 +1,22 @@
-import { Component, ElementRef, OnInit, SimpleChanges } from '@angular/core';
+import { Component, HostListener, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HeadComponent } from "../../shared/head/head.component";
 import { FootComponent } from '../../shared/foot/foot.component';
-import { ActivatedRoute } from '@angular/router';
-import { CountryService } from '../../core/services/country.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { MatCardModule } from '@angular/material/card';
 import { CountryDetail } from '../../Model/country-details.model';
-import { Country } from '../../Model/country.models';
 import { Package } from '../../Model/package.model';
 import { loadPackages, updateFilters } from '../../Store/Action/package.actions';
 import { selectError, selectIsLoading, selectPackages } from '../../Store/Selector/package.selectors';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 import { loadCountryData } from '../../Store/Action/countrydetails.action';
 import { selectCountries } from '../../Store/Selector/countrydetails.selectors';
-
 @Component({
   selector: 'app-destinations-page',
-  imports: [InfiniteScrollModule, MatCardModule, FootComponent, CommonModule, FormsModule, HeadComponent],
+  imports: [InfiniteScrollDirective, MatCardModule, FootComponent, CommonModule, FormsModule, HeadComponent],
   templateUrl: './destinations-page.component.html',
   styleUrl: './destinations-page.component.css',
 })
@@ -27,6 +24,10 @@ export class DestinationsPageComponent implements OnInit {
 
   countries$: Observable<CountryDetail[]>;
   isScrolled = false;
+  @HostListener('window:scroll', [])
+onWindowScroll() {
+  this.isScrolled = window.scrollY > 200;
+}
   weatherData: any;
   weather: any;
 
@@ -37,8 +38,7 @@ export class DestinationsPageComponent implements OnInit {
     duration: ''
   };
 
-  countries: Country[] = [];
-  packages: Package[] = [];
+packages: Package[] = [];
 
   page = 1;
   limit = 5;
@@ -46,8 +46,6 @@ export class DestinationsPageComponent implements OnInit {
   hasMore = true;
 
   scrollDistance = 1;
-  scrollUpDistance = 2;
-  threshold = 120;
   destination: string = '';
 
   packages$: Observable<Package[]>;
@@ -55,10 +53,9 @@ export class DestinationsPageComponent implements OnInit {
   error$: Observable<string | null>;
 
   constructor(
-    private countryservice: CountryService,
     private route: ActivatedRoute,
     private store: Store,
-    private el: ElementRef
+    private router:Router,
   ) {
     this.packages$ = this.store.select(selectPackages);
     this.loading$ = this.store.select(selectIsLoading);
@@ -66,10 +63,8 @@ export class DestinationsPageComponent implements OnInit {
     this.countries$ = this.store.select(selectCountries);
 
   }
-  filtersLoaded = false;
 
   ngOnInit(): void {
-    let urlInitialized = false;
     this.loadInitialPackages();
     this.store.dispatch(loadCountryData());
 
@@ -93,8 +88,9 @@ export class DestinationsPageComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['filterCriteria'] && changes['filterCriteria'].currentValue.destination) {
+    if (changes['filterCriteria'] ) {
       this.applyFilters();
+      
     }
   }
   
@@ -111,12 +107,17 @@ export class DestinationsPageComponent implements OnInit {
 
   loadMorePackages():void {
     if (!this.hasMore) return;
-    this.page++;
-    console.log('Fetching page:', this.page);
-    this.store.dispatch(
-      loadPackages({ page: this.page, limit: this.limit, filters: { ...this.filterCriteria } })
-    );
+    this.loading$.subscribe(isLoading => {
+      if (!isLoading) {
+        this.page++;
+        console.log('Fetching page:', this.page);
+        this.store.dispatch(
+          loadPackages({ page: this.page, limit: this.limit, filters: { ...this.filterCriteria } })
+        );
+      }
+    }).unsubscribe();
   }
+
 
   applyFilters(): void {
     console.log('Applying Filters:', this.filterCriteria);
@@ -138,6 +139,12 @@ export class DestinationsPageComponent implements OnInit {
       duration: ''
     };
     this.applyFilters(); 
+  }
+
+  gotopackagedetails(id:number){
+    this.router.navigate(['/packagedetails',id]);
+    console.log(id);
+
   }
 }
 

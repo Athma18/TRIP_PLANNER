@@ -1,5 +1,5 @@
 export interface Package {
-    id: number;
+  packageId: number;
     country:string;
     packageName: string;
     city: string;

@@ -14,6 +14,7 @@ private countryService=inject(CountryService);
         this.countryService.fetchCountries().pipe(
           map((countries) => CountryActions.loadCountriesSuccess({ countries })),
           catchError((error) => of(CountryActions.loadCountriesFailure({ error })))
+          
         )
       )
     )

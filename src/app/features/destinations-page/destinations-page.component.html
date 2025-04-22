@@ -118,7 +118,7 @@
           </div>
     
    
-          <button mat-button class="book-btn">Explore</button>
+          <button mat-button class="book-btn" (click)="gotopackagedetails(package.packageId)">Explore</button>
         </mat-card-content>
     
       </mat-card>
@@ -127,10 +127,10 @@
   *ngIf="!loading"
   infiniteScroll
   [infiniteScrollDistance]="scrollDistance"
-  [infiniteScrollUpDistance]="scrollUpDistance"
   [infiniteScrollThrottle]="300"
 
   (scrolled)="loadMorePackages()">
+
 </div>
    
   

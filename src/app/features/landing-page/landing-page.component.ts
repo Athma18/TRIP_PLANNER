@@ -20,8 +20,6 @@ import { Store } from '@ngrx/store';
 import { fetchCountries } from '../../Store/Selector/country.selectors';
 import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
 import { Country } from '../../Model/country.models';
-import { loadCountries } from '../../Store/Action/country.action';
-import {  ElementRef } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
@@ -43,9 +41,8 @@ export class LandingPageComponent implements OnInit{
   private searchTerm=new Subject<string>();
 
 
-  constructor(private router:Router,private authService:AuthService, private countryService:CountryService,private cd: ChangeDetectorRef ,private store:Store, private elRef: ElementRef){
+  constructor(private router:Router,private authService:AuthService, private countryService:CountryService,private cd: ChangeDetectorRef ,private store:Store){
      this.countries$ = this.store.select(fetchCountries); 
-
 
   };
   
@@ -71,6 +68,7 @@ export class LandingPageComponent implements OnInit{
         this.authService.isLoggedIn(); 
       } else {
         this.router.navigate(['/login']);
+
       }
  
 
@@ -94,6 +92,8 @@ export class LandingPageComponent implements OnInit{
         console.log(`Dialog result: ${result}`);
       });
     }
+
+    
 selectCountry(country:any):void{
   this.selectedCountry = country;
   this.searchCountry = country.name; 
@@ -103,6 +103,7 @@ selectCountry(country:any):void{
 
    search(): void {
     let destination = this.selectedCountry ? this.selectedCountry.name : this.searchCountry.trim();
+    console.log(destination);
 
       if (this.searchCountry.trim()) {
         this.router.navigate(['/destination'],{
@@ -115,8 +116,8 @@ selectCountry(country:any):void{
       }
     }
 
-  
-    }
+
+}
 
   
   

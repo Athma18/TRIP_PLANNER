@@ -92,13 +92,12 @@
 .search{
   width:100%;
   height: max-content;
-  padding: 20px;
-  margin-top: 30px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
   position: sticky;
-  top:110px;
+  top:99px;
   z-index:100;
 
 
@@ -114,7 +113,7 @@
 .search-cont {
   justify-content: center;
   background-color: #c1e3fa;
-  width: max-content;
+  width: 1245px;
   height:100%;
 }
 

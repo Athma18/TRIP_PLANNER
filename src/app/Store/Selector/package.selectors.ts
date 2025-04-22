@@ -16,3 +16,7 @@ export const selectError = createSelector(
     selectPackageState,
     (state: PackageState) => state.error
   );
+
+  export const selectPackageById=(id:string)=>createSelector(
+selectPackages,(packages)=>packages.find(pkg=>pkg.packageId===id)    
+  )

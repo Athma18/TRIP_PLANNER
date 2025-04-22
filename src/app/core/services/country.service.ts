@@ -37,12 +37,11 @@ getWeather(countryName: string): Observable<any> {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${countryName}&appid=0fb98fece26b5c523a9d05679134b10e&units=metric`;
   return this.http.get(url);
 }; 
-//fetch packages
 getPackages(page: number, limit: number, filters: any = {}): Observable<Package[]> {
   const params:any = {
     page,
     limit,
-  
+                                                                  
   };
   if (filters) {
     if (filters.destination) params.destination = filters.destination;
@@ -53,11 +52,6 @@ getPackages(page: number, limit: number, filters: any = {}): Observable<Package[
 
   return this.http.post<Package[]>(`${this.apiUrl}`, params);
 }
-
-
-
- 
-
 
  
   };

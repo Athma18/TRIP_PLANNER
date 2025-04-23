@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Athma",
+    "email": "athmaprakash18@gmail.com",
+    "phoneNumber": "07510733695",
+    "cardNumber": "1111111111111111",
+    "expiryDate": "11/11",
+    "cvc": "111",
+    "paymentDetails": "hgh"
+  },
+  {
+    "name": "Athma Prakash",
+    "email": "athmaprakash18@gmail.com",
+    "phoneNumber": "7510733695",
+    "cardNumber": "1212121212121212",
+    "expiryDate": "12/11",
+    "cvc": "111",
+    "paymentDetails": "ank"
+  }
+]

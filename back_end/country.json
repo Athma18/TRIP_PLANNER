@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "France",
+    "description": "France is famous for its wine, cuisine, fashion, and landmarks like the Eiffel Tower and the Louvre Museum.",
+    "photos": ["https://example.com/photos/france1.jpg", "https://example.com/photos/france2.jpg"]
+   
+  },
+  {
+    "id": 2,
+    "name": "Japan",
+    "description": "Japan blends ancient traditions with modern life, known for cherry blossoms, sushi, and Mount Fuji.",
+    "photos": ["https://example.com/photos/japan1.jpg", "https://example.com/photos/japan2.jpg"]
+  },
+  {
+    "id": 3,
+    "name": "Brazil",
+    "description": "Brazil is known for its vibrant culture, the Amazon rainforest, and the iconic Christ the Redeemer statue.",
+    "photos": ["https://example.com/photos/brazil1.jpg", "https://example.com/photos/brazil2.jpg"]
+  },
+  {
+    "id": 4,
+    "name": "Australia",
+    "description": "Australia features stunning natural wonders like the Great Barrier Reef, unique wildlife, and modern cities.",
+    "photos": ["https://example.com/photos/australia1.jpg", "https://example.com/photos/australia2.jpg"]
+  },
+  {
+    "id": 5,
+    "name": "Italy",
+    "description": "Italy is renowned for its historic cities, art, architecture, and world-class food and wine.",
+    "photos": ["https://example.com/photos/italy1.jpg", "https://example.com/photos/italy2.jpg"]
+  },
+  {
+    "id": 6,
+    "name": "Greece",
+    "description": "Greece is known for its ancient ruins, whitewashed buildings, and beautiful Mediterranean beaches.",
+    "photos": ["https://example.com/photos/greece1.jpg", "https://example.com/photos/greece2.jpg"]
+  },
+  {
+    "id": 7,
+    "name": "Thailand",
+    "description": "Thailand offers tropical beaches, ornate temples, and vibrant street life.",
+    "photos": ["https://example.com/photos/thailand1.jpg", "https://example.com/photos/thailand2.jpg"]
+  },
+  {
+    "id": 8,
+    "name": "Switzerland",
+    "description": "Switzerland is known for its alpine scenery, luxury watches, and delicious chocolate.",
+    "photos": ["https://example.com/photos/switzerland1.jpg", "https://example.com/photos/switzerland2.jpg"]
+  }
+  
+  
+  
+]

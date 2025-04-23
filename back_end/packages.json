@@ -1,0 +1,276 @@
+[
+    {
+      "packageId": 101,
+      "packageName": "Romantic Paris Escape",
+      "city": "Paris",
+      "country": "France",
+      "numberOfDays": 2,
+      "amount": 1200,
+      "type": "honeymoon",
+      "description":"Paris is famously known for its iconic landmarks like the Eiffel Tower and the Louvre Museum, its vibrant culture, rich history, and world-renowned cuisine. It's also a major center for fashion, art, and gastronomy. ",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "Arrival and City Tour",
+          "destinations": ["Eiffel Tower", "Louvre Museum", "Notre Dame Cathedral"]
+        },
+        {
+          "day": 2,
+          "title": "Versailles and Wine Tasting",
+          "destinations": ["Palace of Versailles", "Local Vineyard", "Seine River Cruise"]
+        }
+      ]
+    },
+    {
+      "packageId": 102,
+      "packageName": "Bordeaux Wine Trail",
+      "city": "Bordeaux",
+      "country": "France",
+      "numberOfDays": 2,
+      "amount": 23500,
+      "type": "leisure",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "Historic Bordeaux",
+          "destinations": ["Place de la Bourse", "Bordeaux Cathedral", "Cité du Vin"]
+        },
+        {
+          "day": 2,
+          "title": "Vineyard Tour",
+          "destinations": ["Saint-Émilion", "Wine tasting", "Château visit"]
+        }
+      ]
+    },
+    {
+      "packageId": 201,
+      "packageName": "Tokyo Cherry Blossom Tour",
+      "city": "Tokyo",
+      "country": "Japan",
+      "numberOfDays": 2,
+      "amount": 14000,
+      "type": "cultural",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "City Tour",
+          "destinations": ["Shibuya Crossing", "Asakusa Temple", "Tokyo Skytree"]
+        },
+        {
+          "day": 2,
+          "title": "Cherry Blossom Experience",
+          "destinations": ["Ueno Park", "Chidorigafuchi", "Sakura Boat Ride"]
+        }
+      ]
+    },
+    {
+      "packageId": 202,
+      "packageName": "Mount Fuji Adventure",
+      "city": "Fuji",
+      "country": "Japan",
+      "numberOfDays": 7,
+      "amount": 115000,
+      "type": "adventure",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "Fuji Hiking",
+          "destinations": ["Mount Fuji 5th Station", "Lake Kawaguchi", "Fuji Visitor Center"]
+        },
+        {
+          "day": 2,
+          "title": "Nature Escape",
+          "destinations": ["Aokigahara Forest", "Hot Springs", "Local Cuisine"]
+        }
+      ]
+    },
+    {
+      "packageId": 301,
+      "packageName": "Amazon Jungle Trek",
+      "city": "Manaus",
+      "country": "Brazil",
+      "numberOfDays": 2,
+      "amount": 130000,
+      "type": "adventure",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "Jungle Entry",
+          "destinations": ["Manaus Port", "Rainforest Lodge", "Night Safari"]
+        },
+        {
+          "day": 2,
+          "title": "River & Wildlife",
+          "destinations": ["Amazon River Cruise", "Pink Dolphins", "Canopy Walk"]
+        }
+      ]
+    },
+    {
+      "packageId": 302,
+      "packageName": "Rio Carnival Experience",
+      "city": "Rio de Janeiro",
+      "country": "Brazil",
+      "numberOfDays": 2,
+      "amount": 12500,
+      "type": "cultural",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "City & Christ Tour",
+          "destinations": ["Christ the Redeemer", "Sugarloaf Mountain", "Copacabana Beach"]
+        },
+        {
+          "day": 2,
+          "title": "Carnival Parade",
+          "destinations": ["Sambadrome", "Local Markets", "Samba Dance Workshop"]
+        }
+      ]
+    },
+    {
+      "packageId": 401,
+      "packageName": "Reef Explorer",
+      "city": "Cairns",
+      "country": "Australia",
+      "numberOfDays": 2,
+      "amount": 16000,
+      "type": "adventure",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "Diving Day",
+          "destinations": ["Great Barrier Reef", "Scuba Dive", "Glass Bottom Boat"]
+        },
+        {
+          "day": 2,
+          "title": "Island Hopping",
+          "destinations": ["Green Island", "Snorkeling", "Sunset Dinner Cruise"]
+        }
+      ]
+    },
+    {
+      "packageId": 402,
+      "packageName": "Sydney City Lights",
+      "city": "Sydney",
+      "country": "Australia",
+      "numberOfDays": 2,
+      "amount": 1300,
+      "type": "leisure",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "Harbour Wonders",
+          "destinations": ["Sydney Opera House", "Harbour Bridge", "Ferry Ride"]
+        },
+        {
+          "day": 2,
+          "title": "Nature and Culture",
+          "destinations": ["Bondi Beach", "Taronga Zoo", "Art Gallery of NSW"]
+        }
+      ]
+    },
+    {
+      "packageId": 501,
+      "packageName": "Venice Love Trip",
+      "city": "Venice",
+      "country": "Italy",
+      "numberOfDays": 2,
+      "amount": 1250,
+      "type": "honeymoon",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "Romantic Cruise",
+          "destinations": ["Grand Canal", "Rialto Bridge", "St. Mark's Square"]
+        },
+        {
+          "day": 2,
+          "title": "Island Excursion",
+          "destinations": ["Murano Glass", "Burano Village", "Gondola Ride"]
+        }
+      ]
+    },
+    {
+      "packageId": 502,
+      "packageName": "Tuscan Countryside",
+      "city": "Florence",
+      "country": "Italy",
+      "numberOfDays": 2,
+      "amount": 1450,
+      "type": "leisure",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "Art and Culture",
+          "destinations": ["Uffizi Gallery", "Duomo", "Ponte Vecchio"]
+        },
+        {
+          "day": 2,
+          "title": "Vineyard and Villas",
+          "destinations": ["Chianti Wine Region", "Vineyard Lunch", "Tuscany Hills"]
+        }
+      ]
+    },
+    {
+      "packageId": 601,
+      "packageName": "Santorini Sunset Romance",
+      "city": "Santorini",
+      "country": "Greece",
+      "numberOfDays": 2,
+      "amount": 1100,
+      "type": "honeymoon",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "Island Exploration",
+          "destinations": ["Oia Village", "Blue Domes", "Caldera Views"]
+        },
+        {
+          "day": 2,
+          "title": "Sunset Cruise",
+          "destinations": ["Volcano Hot Springs", "Red Beach", "Sunset Dinner"]
+        }
+      ]
+    },
+    {
+      "packageId": 701,
+      "packageName": "Bangkok & Beaches",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "numberOfDays": 2,
+      "amount": 950,
+      "type": "leisure",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "City & Temples",
+          "destinations": ["Grand Palace", "Wat Arun", "Floating Market"]
+        },
+        {
+          "day": 2,
+          "title": "Beach Getaway",
+          "destinations": ["Pattaya Beach", "Coral Island", "Thai Massage"]
+        }
+      ]
+    },
+    {
+      "packageId": 801,
+      "packageName": "Alpine Adventure",
+      "city": "Zurich",
+      "country": "Switzerland",
+      "numberOfDays": 2,
+      "amount": 15000,
+      "type": "adventure",
+      "dailyPlan": [
+        {
+          "day": 1,
+          "title": "City Tour & Mountains",
+          "destinations": ["Lake Zurich", "Old Town", "Uetliberg Mountain"]
+        },
+        {
+          "day": 2,
+          "title": "Snow & Scenic Rides",
+          "destinations": ["Mt. Titlis", "Cable Car", "Lucerne Chapel Bridge"]
+        }
+      ]
+    }
+]
